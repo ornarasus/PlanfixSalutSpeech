@@ -151,8 +151,6 @@ def get_script(file_id: str) -> str:
         verify="rus.cer"
     )
     text: str = ""
-    with open("n-da.json", 'w') as fp:
-        fp.write(req.content.decode(encoding="utf8"))
     results = json.loads(req.content.decode(encoding="utf8"))
     for index in range(len(results)):
         if results[index]["results"][0]["normalized_text"] == "" or index == len(results)-1:
